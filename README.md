@@ -94,7 +94,7 @@ you can find its page on StepLib [here](http://www.steplib.com/step/your-step-id
 ## How to submit your Step into the Open Step Library
 
 To submit a Step to the [Open Step Library](http://www.steplib.com/)
-you have to create a pull-request in the StepLib's spec repository
+you have to create a Pull Request in the StepLib's spec repository
 and include your step's `step.yml` description file
 in the **steps/** folder.
 
