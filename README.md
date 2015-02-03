@@ -49,7 +49,7 @@ You can now start coding and when you're ready
 you can submit your Step to the [Open Step Library](http://www.steplib.com/).
 
 
-## Structure
+## Step Repository Structure
 
 ### step.sh
 
