@@ -4,10 +4,11 @@ Step template repository.
 Contains everything what's required for a
 valid [StepLib](http://www.steplib.com/) Step.
 
-To create your own Step:
+
+## Create your own Step:
 
 1. Create a new repository on GitHub
-2. Copy the files from this repository into your repository
+2. Copy the files from the [step-template repository](https://github.com/steplib/step-template)
 3. Commit and push it
 
 Hurray, you just created your first Step repository!
