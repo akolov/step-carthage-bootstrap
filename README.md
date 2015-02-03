@@ -28,12 +28,12 @@ Step in ruby then all you have to include in the *step.sh*
 file is the code to run your own ruby script,
 something like this:
 
-  #!/bin/bash
-
-  THIS_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-  ruby "${THIS_SCRIPT_DIR}/my_ruby_script.rb"
-  exit $?
+    #!/bin/bash
+  
+    THIS_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  
+    ruby "${THIS_SCRIPT_DIR}/my_ruby_script.rb"
+    exit $?
 
 
 **inputs**: a Step should get it's inputs through
@@ -95,6 +95,16 @@ you can find its page on StepLib [here](http://www.steplib.com/step/your-step-id
 ## How to submit your Step into the Open Step Library
 
 To submit a Step to the [Open Step Library](http://www.steplib.com/)
-you have to create a pull-request in the StepLib's spec repository
+you have to create a Pull Request in the StepLib's spec repository
 and include your step's `step.yml` description file
 in the **steps/** folder.
+
+1. Create your Step repository as described above.
+2. Fork the StepLib spec repository: [https://github.com/steplib/steplib](https://github.com/steplib/steplib)
+3. Create a new folder inside the **steps/** folder (in your forked StepLib spec repository) if it's the first version of your Step. (Example path: `steps/my-step`). *Note: The name of the folder will be the ID of your Step.*
+4. Create a folder inside your step's folder with the name of a version tag you added to your Step repository. (Example path: `steps/my-step/1.0.0`). **You have to actually use this tag in your repository**. When a user wants to use this version of your Step the StepLib system will try to clone your Step repository with the specified version tag!
+5. Copy your step.yml into this version folder (Example path: `steps/my-step/1.0.0/step.yml`)
+6. Create and send a Pull Request
+
+*Before you submit your Step into a Step Library you should test it in a StepLib compatible system.
+You can use a free [Bitrise](http://www.bitrise.io/) account to test your Step.*
