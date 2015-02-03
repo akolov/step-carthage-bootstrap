@@ -5,6 +5,39 @@ Contains everything what's required for a
 valid [StepLib](http://www.steplib.com/) Step.
 
 
+## Test run this Step on your own machine
+
+Steps get their inputs through Environment Variables.
+The Step's inputs are described in the `step.yml` Step
+description file.
+
+To run a Step locally you have to define it's
+inputs (environment variables) before you could run
+the Step.
+
+A simple way to do this in your Command Line / Terminal
+is to call it like this:
+
+	cd path/to/step/directory
+
+    (
+    	export INPUT_VAR_1="My value 1"
+    	export INPUT_VAR_2="My value 2"
+    	...
+    	bash step.sh
+    )
+
+*Including the environment variable definitions
+in a `(...)` block helps to keep your
+Command Line / Terminal environment clean, those
+input environments are only available
+inside the `(...)` block.*
+
+If you plan to test it multiple times you can
+save this as a shell script
+and simply call it as many times as you want to.
+
+
 ## Create your own Step:
 
 1. Create a new repository on GitHub
