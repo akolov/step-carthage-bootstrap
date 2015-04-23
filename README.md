@@ -5,7 +5,12 @@ Contains everything what's required for a
 valid [StepLib](http://www.steplib.com/) Step.
 
 
-## Test run this Step on your own machine
+## "Install" this Step on your own machine
+
+Just clone this git repository and you can start using it.
+
+
+## Run this Step on your own machine
 
 Steps get their inputs through Environment Variables.
 The Step's inputs are described in the `step.yml` Step
@@ -38,6 +43,15 @@ save this as a shell script
 and simply call it as many times as you want to.
 
 
+## Contributing to this Step
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a pull request
+
+
 ## Create your own Step:
 
 1. Create a new repository on GitHub
@@ -47,6 +61,9 @@ and simply call it as many times as you want to.
 Hurray, you just created your first Step repository!
 You can now start coding and when you're ready
 you can submit your Step to the [Open Step Library](http://www.steplib.com/).
+
+*You can find more information about the submission process below,
+in the "How to submit your Step into the Open Step Library" section.*
 
 
 ## Step Repository Structure
@@ -62,9 +79,9 @@ file is the code to run your own ruby script,
 something like this:
 
     #!/bin/bash
-  
+
     THIS_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-  
+
     ruby "${THIS_SCRIPT_DIR}/my_ruby_script.rb"
     exit $?
 
