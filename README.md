@@ -5,7 +5,7 @@ Contains everything what's required for a
 valid [StepLib](http://www.steplib.com/) Step.
 
 
-## "Install" this Step on your own machine
+## Install this Step on your own machine
 
 Just clone this git repository and you can start using it.
 
