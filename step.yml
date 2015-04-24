@@ -15,6 +15,11 @@ type_tags:
 is_requires_admin_user: false
 inputs:
   -
+    mapped_to: BITRISE_SOURCE_DIR
+    title: "Source Code Directory path."
+    is_expand: true
+    is_required: true
+  -
     mapped_to: CARTHAGE_PLATFORM
     title: "Platform to build for"
     is_required: true
