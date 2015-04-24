@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "Hello ${EXAMPLE_INPUT_NAME}!"
+if ! hash carthage 2>/dev/null; then
+  brew install carthage
+fi
 
-# return 0 as the exit code in case of success
-# return >0 if the step failed
-exit 0
+carthage bootstrap --platform "$CARTHAGE_PLATFORM"
+
+exit $?
