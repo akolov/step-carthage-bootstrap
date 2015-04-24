@@ -44,14 +44,14 @@ do
   curr_cartfile_basename=$(basename "${cartfile}")
   echo " (i) Cartfile directory: ${curr_cartfile_dir}"
 
-  (
-    echo
-    echo " ===> Carthage bootstrap: ${cartfile}"
-    cd "${curr_cartfile_dir}"
-    fail_if_cmd_error "Failed to cd into dir: ${curr_cartfile_dir}"
-    carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
-    fail_if_cmd_error "Failed to carthage bootstrap"
-  )
+
+  echo
+  echo " ===> Carthage bootstrap: ${cartfile}"
+  cd "${curr_cartfile_dir}"
+  fail_if_cmd_error "Failed to cd into dir: ${curr_cartfile_dir}"
+  carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
+  fail_if_cmd_error "Failed to carthage bootstrap"
+
 
   if [ $? -ne 0 ] ; then
     write_section_to_formatted_output "* Could not bootstrap cartfile: ${cartfile}"
