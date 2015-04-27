@@ -16,7 +16,7 @@ is_requires_admin_user: false
 inputs:
   -
     mapped_to: CARTHAGE_PROVISIONING_PROFILE
-    title: "Code signing identity to use"
+    title: "Provisioining profile to sign frameworks with"
     is_required: false
     is_expand: false
     value_options: []
