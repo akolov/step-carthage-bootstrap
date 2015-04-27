@@ -15,13 +15,6 @@ type_tags:
 is_requires_admin_user: false
 inputs:
   -
-    mapped_to: CARTHAGE_PROVISIONING_PROFILE
-    title: "Provisioining profile to sign frameworks with"
-    is_required: false
-    is_expand: false
-    value_options: []
-    is_dont_change_value: false
-  -
     mapped_to: CARTHAGE_PLATFORM
     title: "Platform to build for"
     is_required: true
