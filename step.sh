@@ -36,6 +36,11 @@ fi
 
 write_section_to_formatted_output "### Searching for cartfiles and bootstrapping the found ones"
 
+if [ -n "${BITRISE_SOURCE_DIR}" ]; then
+  write_section_to_formatted_output "# Using provisioning profile $CARTHAGE_PROVISIONING_PROFILE"
+  export PROVISIONING_PROFILE="$CARTHAGE_PROVISIONING_PROFILE"
+fi
+
 for cartfile in $(find . -type f -iname 'Cartfile')
 do
   cartcount=$[cartcount + 1]
@@ -44,12 +49,13 @@ do
   curr_cartfile_basename=$(basename "${cartfile}")
   echo " (i) Cartfile directory: ${curr_cartfile_dir}"
 
-
   echo
   echo " ===> Carthage bootstrap: ${cartfile}"
   cd "${curr_cartfile_dir}"
   fail_if_cmd_error "Failed to cd into dir: ${curr_cartfile_dir}"
-  CODE_SIGN_IDENTITY="$CARTHAGE_CODE_SIGN_IDENTITY" carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
+
+  carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
+
   fail_if_cmd_error "Failed to carthage bootstrap"
 
 
