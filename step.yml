@@ -22,4 +22,39 @@ inputs:
     value: "optional, default value for the input field"
     value_options: ["all", "iOS", "Mac"]
     is_dont_change_value: false
+  -
+    mapped_to: XCODE_BUILDER_CERTIFICATE_URL
+    title: "Certificate Private Key file URL"
+    description: |
+      .p12 Private Key file's URL
+    is_required: true
+    is_expand: true
+  -
+    mapped_to: XCODE_BUILDER_CERTIFICATE_PASSPHRASE
+    title: "Certificate Private Key file Passphrase"
+    description: |
+      .p12 Private Key file's Passphrase
+    is_required: false
+    is_expand: true
+  -
+    mapped_to: XCODE_BUILDER_PROVISION_URL
+    title: "Provisioning Profile URL"
+    description: |
+      Multiple URLs can be specified, separated by a pipe (**|**) character.
+      Example: `http://url1.com|http://url2.com`
+      If only a single Provisioning Profile is defined the profile's UUID
+      will be specified as a fix Xcode build parameter, forcing it
+      to use for the build in case other Provisioning Profiles
+      are also available on the build machine.
+    is_required: false
+    is_expand: true
+  -
+    mapped_to: XCODE_BUILDER_CERTIFICATES_DIR
+    title: "Certificates Directory Path"
+    description: |
+      Directory where this step stores the Build Certificate/Identity related
+      files, for example the Certificate Private Key (.p12).
+    value: "${HOME}/certificates"
+    is_expand: true
+    is_required: true
 outputs: []
