@@ -163,7 +163,7 @@ do
   cd "${curr_cartfile_dir}"
   fail_if_cmd_error "Failed to cd into dir: ${curr_cartfile_dir}"
 
-  carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
+  CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose
 
   fail_if_cmd_error "Failed to carthage bootstrap"
 
