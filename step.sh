@@ -163,7 +163,9 @@ do
   cd "${curr_cartfile_dir}"
   fail_if_cmd_error "Failed to cd into dir: ${curr_cartfile_dir}"
 
-  carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose \
+  PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
+  CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
+  OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}" carthage bootstrap --platform "$CARTHAGE_PLATFORM" --verbose . \
     PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
     CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
     OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}"
