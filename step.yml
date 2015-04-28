@@ -19,7 +19,7 @@ inputs:
     title: "Platform to build for"
     is_required: true
     is_expand: false
-    value: "optional, default value for the input field"
+    value: "all"
     value_options: ["all", "iOS", "Mac"]
     is_dont_change_value: false
   -
@@ -27,15 +27,19 @@ inputs:
     title: "Certificate Private Key file URL"
     description: |
       .p12 Private Key file's URL
+    value: $BITRISE_CERTIFICATE_URL
     is_required: true
     is_expand: true
+    is_dont_change_value: true
   -
     mapped_to: XCODE_BUILDER_CERTIFICATE_PASSPHRASE
     title: "Certificate Private Key file Passphrase"
     description: |
       .p12 Private Key file's Passphrase
+    value: $BITRISE_CERTIFICATE_PASSPHRASE
     is_required: false
     is_expand: true
+    is_dont_change_value: true
   -
     mapped_to: XCODE_BUILDER_PROVISION_URL
     title: "Provisioning Profile URL"
@@ -46,8 +50,10 @@ inputs:
       will be specified as a fix Xcode build parameter, forcing it
       to use for the build in case other Provisioning Profiles
       are also available on the build machine.
+    value: $BITRISE_PROVISION_URL
     is_required: false
     is_expand: true
+    is_dont_change_value: true
   -
     mapped_to: XCODE_BUILDER_CERTIFICATES_DIR
     title: "Certificates Directory Path"
@@ -57,4 +63,5 @@ inputs:
     value: "${HOME}/certificates"
     is_expand: true
     is_required: true
+    is_dont_change_value: true
 outputs: []
