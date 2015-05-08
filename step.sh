@@ -5,6 +5,30 @@ source "${THIS_SCRIPTDIR}/_bash_utils/utils.sh"
 source "${THIS_SCRIPTDIR}/_bash_utils/formatted_output.sh"
 
 # ------------------------------
+# --- Utils - CleanUp
+
+is_build_action_success=0
+function finalcleanup {
+  echo "-> finalcleanup"
+  local fail_msg="$1"
+
+  # unset UUID
+  # rm "${CONFIG_provisioning_profiles_dir}/${PROFILE_UUID}.mobileprovision"
+  # Keychain have to be removed - it's password protected
+  #  and the password is only available in this step!
+  keychain_fn "remove"
+
+  # # Remove downloaded files
+  # rm ${CERTIFICATE_PATH}
+}
+
+function CLEANUP_ON_ERROR_FN {
+  local err_msg="$1"
+  finalcleanup "${err_msg}"
+}
+set_error_cleanup_function CLEANUP_ON_ERROR_FN
+
+# ------------------------------
 # --- Utils - Keychain
 
 function keychain_fn {
@@ -174,5 +198,7 @@ done
 unset IFS
 
 write_section_to_formatted_output "**${cartcount} cartfile(s) found and installed**"
+
+finalcleanup
 
 exit $?
