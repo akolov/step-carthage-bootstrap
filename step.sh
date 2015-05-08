@@ -7,7 +7,6 @@ source "${THIS_SCRIPTDIR}/_bash_utils/formatted_output.sh"
 # ------------------------------
 # --- Utils - CleanUp
 
-is_build_action_success=0
 function finalcleanup {
   echo "-> finalcleanup"
   local fail_msg="$1"
